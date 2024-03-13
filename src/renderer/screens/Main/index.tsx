@@ -1,49 +1,51 @@
-import { useNavigate } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
-import { Container, Heading, Button } from 'renderer/components'
-import { useWindowStore } from 'renderer/store'
+import { Container, Heading } from "renderer/components";
+import { useWindowStore } from "renderer/store";
+import { Button } from "renderer/components/ui/button";
 
 // The "App" comes from the context bridge in preload/index.ts
-const { App } = window
+const { App } = window;
 
 export function MainScreen() {
-  const navigate = useNavigate()
-  const store = useWindowStore().about
+  const navigate = useNavigate();
+  const store = useWindowStore().about;
 
   useEffect(() => {
-    App.sayHelloFromBridge()
+    App.sayHelloFromBridge();
 
     App.whenAboutWindowClose(({ message }) => {
-      console.log(message)
+      console.log(message);
 
-      store.setAboutWindowState(false)
-    })
-  }, [])
+      store.setAboutWindowState(false);
+    });
+  }, []);
 
   function openAboutWindow() {
-    App.createAboutWindow()
-    store.setAboutWindowState(true)
+    App.createAboutWindow();
+    store.setAboutWindowState(true);
   }
 
   return (
     <Container>
-      <Heading>Hi, {App.username || 'there'}! 👋</Heading>
+      <Heading>Hi, {App.username || "there"}! 👋</Heading>
+      <Button>hello</Button>
 
       <h2>It's time to build something awesome! ✨</h2>
 
       <nav>
         <Button
-          className={store.isOpen ? 'disabled' : ''}
+          className={store.isOpen ? "disabled" : ""}
           onClick={openAboutWindow}
         >
           Open About Window
         </Button>
 
-        <Button onClick={() => navigate('anotherScreen')}>
+        <Button onClick={() => navigate("anotherScreen")}>
           Go to Another screen
         </Button>
       </nav>
     </Container>
-  )
+  );
 }
