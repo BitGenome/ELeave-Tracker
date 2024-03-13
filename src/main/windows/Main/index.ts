@@ -23,6 +23,16 @@ export async function MainWindow() {
     },
   })
 
+  /**
+   * Make the windows maximizable
+   */
+  window.maximizable = true
+
+  /**
+   * Defualt to maximize window
+   */
+  window.maximize()
+
   window.webContents.on('did-finish-load', () => {
     if (ENVIRONMENT.IS_DEV) {
       window.webContents.openDevTools({ mode: 'detach' })

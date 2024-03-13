@@ -1,13 +1,13 @@
 {
-  "displayName": "My Awesome Electron App",
-  "name": "my-awesome-electron-app",
-  "description": "Your awesome app description",
-  "version": "2.0.6",
+  "displayName": "ELeave Tracker",
+  "name": "e-leave-tracker",
+  "description": "Employee leaver tracker",
+  "version": "0.1.0",
   "main": "./node_modules/.dev/main/index.js",
   "resources": "src/resources",
   "author": {
-    "name": "Dalton Menezes",
-    "email": "daltonmenezes@outlook.com"
+    "name": "Junel Sacro",
+    "email": "sacrojunel@protonmail.com"
   },
   "license": "MIT",
   "scripts": {
