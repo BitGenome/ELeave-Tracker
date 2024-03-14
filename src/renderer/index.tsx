@@ -4,13 +4,15 @@ import React from "react";
 import { WindowStoreProvider } from "./store";
 import { AppRoutes } from "./routes";
 
-import "resources/styles/globals.sass";
 import "resources/styles/globals.css";
+import { TooltipProvider } from "./components/ui/tooltip";
 
 ReactDom.createRoot(document.querySelector("app") as HTMLElement).render(
   <React.StrictMode>
     <WindowStoreProvider>
-      <AppRoutes />
+      <TooltipProvider>
+        <AppRoutes />
+      </TooltipProvider>
     </WindowStoreProvider>
   </React.StrictMode>,
 );
