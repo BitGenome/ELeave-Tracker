@@ -52,7 +52,10 @@ export const LeftMenuIcons: LeftIconProps[] = [
     icon: () => (
       <Tooltip>
         <TooltipTrigger>
-          <span className="cursor-pointer bg-muted-foreground rounded-full h-8 w-8 flex items-center justify-center hover:bg-primary ">
+          <span
+            className="
+          cursor-pointer bg-muted-foreground rounded-full h-8 w-8 flex items-center justify-center hover:bg-primary "
+          >
             <FileText className="text-white h-4 w-4" />
           </span>
         </TooltipTrigger>

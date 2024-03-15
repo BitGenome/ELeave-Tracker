@@ -1,9 +1,5 @@
-import { LeftMenu } from "renderer/components/organism";
+import MainLayout from "renderer/components/organism/MainLayout";
 
 export function MainScreen() {
-  return (
-    <section>
-      <LeftMenu />
-    </section>
-  );
+  return <MainLayout>file leave</MainLayout>;
 }
