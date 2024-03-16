@@ -1,5 +1,9 @@
-import MainLayout from "renderer/components/organism/MainLayout";
+import { Card } from "renderer/components/ui/card";
 
 export function MainScreen() {
-  return <MainLayout>file leave</MainLayout>;
+  return (
+    <>
+      <Card>dashboard</Card>
+    </>
+  );
 }

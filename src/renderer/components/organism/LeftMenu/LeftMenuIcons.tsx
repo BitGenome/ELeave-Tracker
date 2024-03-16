@@ -1,4 +1,4 @@
-import { File, FileText, User } from "lucide-react";
+import { CalendarCheck, FileText, Menu, User } from "lucide-react";
 import { ReactElement } from "react";
 import {
   Tooltip,
@@ -10,18 +10,42 @@ import { ROUTES } from "renderer/constants/routes";
 type LeftIconProps = {
   link: string;
   name: string;
-  icon: () => ReactElement;
+  icon: (isActive?: boolean) => ReactElement;
 };
 
 export const LeftMenuIcons: LeftIconProps[] = [
   {
-    link: ROUTES.FILE_LEAVE,
-    name: "File Leave",
-    icon: () => (
+    link: ROUTES.DASHBOARD,
+    name: "Dashboard",
+    icon: (isActive = false) => (
       <Tooltip>
         <TooltipTrigger>
-          <span className=" cursor-pointer bg-muted-foreground rounded-full h-8 w-8 flex items-center justify-center hover:bg-primary ">
-            <File className="text-white h-4 w-4" />
+          <span
+            className={`cursor-pointer ${
+              isActive ? "bg-primary" : "bg-muted-foreground"
+            } rounded-full h-8 w-8 flex items-center justify-center hover:bg-primary`}
+          >
+            <Menu className="text-white h-4 w-4" />
+          </span>
+        </TooltipTrigger>
+        <TooltipContent side="right" align="center" sideOffset={10}>
+          <p>File an employee leave</p>
+        </TooltipContent>
+      </Tooltip>
+    ),
+  },
+  {
+    link: ROUTES.FILE_LEAVE,
+    name: "File Leave",
+    icon: (isActive = false) => (
+      <Tooltip>
+        <TooltipTrigger>
+          <span
+            className={`cursor-pointer ${
+              isActive ? "bg-primary" : "bg-muted-foreground"
+            } rounded-full h-8 w-8 flex items-center justify-center hover:bg-primary`}
+          >
+            <CalendarCheck className="text-white h-4 w-4" />
           </span>
         </TooltipTrigger>
         <TooltipContent side="right" align="center" sideOffset={10}>
@@ -33,10 +57,14 @@ export const LeftMenuIcons: LeftIconProps[] = [
   {
     link: ROUTES.EMPLOYEES,
     name: "Employees",
-    icon: () => (
+    icon: (isActive = false) => (
       <Tooltip>
         <TooltipTrigger asChild>
-          <span className="cursor-pointer bg-muted-foreground rounded-full h-8 w-8 flex items-center justify-center hover:bg-primary ">
+          <span
+            className={`cursor-pointer ${
+              isActive ? "bg-primary" : "bg-muted-foreground"
+            } rounded-full h-8 w-8 flex items-center justify-center hover:bg-primary`}
+          >
             <User className="text-white h-4 w-4" />
           </span>
         </TooltipTrigger>
@@ -49,12 +77,13 @@ export const LeftMenuIcons: LeftIconProps[] = [
   {
     link: ROUTES.LEAVE_REPORTS,
     name: "Reports",
-    icon: () => (
+    icon: (isActive = false) => (
       <Tooltip>
         <TooltipTrigger>
           <span
-            className="
-          cursor-pointer bg-muted-foreground rounded-full h-8 w-8 flex items-center justify-center hover:bg-primary "
+            className={`cursor-pointer ${
+              isActive ? "bg-primary" : "bg-muted-foreground"
+            } rounded-full h-8 w-8 flex items-center justify-center hover:bg-primary`}
           >
             <FileText className="text-white h-4 w-4" />
           </span>

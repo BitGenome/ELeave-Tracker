@@ -1,11 +1,16 @@
 import { ReactNode } from "react";
 import LeftMenu from "../LeftMenu";
+import { Outlet } from "react-router-dom";
 
-const MainLayout = ({ children }: { children: ReactNode }) => {
+const MainLayout = () => {
   return (
-    <section className="flex">
-      <LeftMenu />
-      {children}
+    <section className="flex bg-slate-100">
+      <div className="flex-none">
+        <LeftMenu />
+      </div>
+      <div>
+        <Outlet />
+      </div>
     </section>
   );
 };
