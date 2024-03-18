@@ -5,6 +5,7 @@ import { WindowStoreProvider } from "./store";
 import { AppRoutes } from "./routes";
 
 import "resources/styles/globals.css";
+import "react-big-calendar/lib/css/react-big-calendar.css";
 import { TooltipProvider } from "./components/ui/tooltip";
 
 ReactDom.createRoot(document.querySelector("app") as HTMLElement).render(

@@ -8,7 +8,7 @@ const MainLayout = () => {
       <div className="flex-none">
         <LeftMenu />
       </div>
-      <div>
+      <div className="overflow-y-auto">
         <Outlet />
       </div>
     </section>
