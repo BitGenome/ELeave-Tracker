@@ -77,7 +77,7 @@ export function MainScreen() {
           Welcome to eLeave tracker app.
         </h1>
         <p className="text-xl text-muted-foreground text-center">
-          Track your employee with ease.
+          Track your employee leaves with ease.
         </p>
       </div>
       <div className="flex items-center justify-center flex-wrap gap-3">
