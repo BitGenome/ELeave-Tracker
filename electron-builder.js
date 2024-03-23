@@ -42,7 +42,7 @@ module.exports = {
   },
 
   win: {
-    icon: `${resources}/build/icons/icon.ico`,
-    target: ['nsis', 'portable', 'zip'],
+    icon: `build/icon.png`,
+    target: ['nsis'],
   },
 }

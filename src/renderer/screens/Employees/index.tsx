@@ -1,7 +1,10 @@
 import { Plus } from "lucide-react";
 import { Payment, columns } from "renderer/components/columns";
+import AddEmployee from "renderer/components/organism/Dialog/AddEmployee";
+
 import { Button } from "renderer/components/ui/button";
 import { DataTable } from "renderer/components/ui/data-table";
+import { Dialog, DialogTrigger } from "renderer/components/ui/dialog";
 
 const data: Payment[] = [
   {
@@ -44,10 +47,15 @@ export const Employees = () => {
           <h2 className="scroll-m-20 pb-2 text-xl font-bold  first:mt-0">
             Employee list
           </h2>
-          <Button>
-            <Plus className="mr-2" />
-            New employee
-          </Button>
+          <Dialog>
+            <DialogTrigger>
+              <Button>
+                <Plus className="mr-2" />
+                New employee
+              </Button>
+            </DialogTrigger>
+            <AddEmployee />
+          </Dialog>
         </div>
       </div>
       <div className="p-5 w-full">

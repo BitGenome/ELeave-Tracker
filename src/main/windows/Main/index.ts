@@ -1,9 +1,11 @@
-import { BrowserWindow } from 'electron'
-import { join } from 'path'
+import { BrowserWindow, app } from 'electron'
+import path, { join } from 'path'
 
 import { ENVIRONMENT } from 'shared/constants'
 import { createWindow } from 'main/factories'
 import { displayName } from '~/package.json'
+
+const iconPath = path.join(app.getAppPath(), 'resources/build/icons/icon.png')
 
 export async function MainWindow() {
   const window = createWindow({
@@ -17,6 +19,7 @@ export async function MainWindow() {
     resizable: false,
     alwaysOnTop: true,
     autoHideMenuBar: true,
+    icon: iconPath,
 
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
