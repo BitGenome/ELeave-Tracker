@@ -1,27 +1,31 @@
-import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { Button } from "renderer/components/ui/button";
 import {
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
 } from "renderer/components/ui/dialog";
-import { z } from "zod";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "renderer/components/ui/form";
 import { Input } from "renderer/components/ui/input";
-import { Button } from "renderer/components/ui/button";
+import { z } from "zod";
 
 const formSchema = z.object({
-  username: z.string().min(2, {
-    message: "Username must be at least 2 characters.",
+  id: z.string().min(1, {
+    message: "Employee id must be at least 1 characters.",
+  }),
+  firstname: z.string().min(1, {
+    message: "Firstname must be at least 1 characters.",
+  }),
+  lastname: z.string().min(1, {
+    message: "Lastname must be at least 1 characters.",
   }),
 });
 
@@ -31,7 +35,7 @@ export default function AddEmployee() {
   const form = useForm<TAddEmployee>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "",
+      firstname: "",
     },
   });
 
@@ -43,20 +47,46 @@ export default function AddEmployee() {
 
   return (
     <DialogContent>
+      <DialogHeader>
+        <DialogTitle>New Employee</DialogTitle>
+      </DialogHeader>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
             control={form.control}
-            name="username"
+            name="id"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Username</FormLabel>
+                <FormLabel>Employee ID</FormLabel>
                 <FormControl>
-                  <Input placeholder="shadcn" {...field} />
+                  <Input {...field} />
                 </FormControl>
-                <FormDescription>
-                  This is your public display name.
-                </FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="firstname"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Firstname</FormLabel>
+                <FormControl>
+                  <Input placeholder="Juan" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="lastname"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Lastname</FormLabel>
+                <FormControl>
+                  <Input placeholder="Dela Cruz" {...field} />
+                </FormControl>
                 <FormMessage />
               </FormItem>
             )}
