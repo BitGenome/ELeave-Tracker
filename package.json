@@ -2,7 +2,7 @@
   "displayName": "ELeave Tracker",
   "name": "e-leave-tracker",
   "description": "Employee leave tracker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "./node_modules/.dev/main/index.js",
   "resources": "src/resources",
   "author": {
